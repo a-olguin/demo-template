@@ -4,7 +4,8 @@
 #include <iterator>
 #include <random>
 #include <vector>
- 
+#include "worker.hh"
+
 // small demo program from cppreference to test ranges (and thus C++20 compiler)
 void print(auto const& rem, auto const& v)
 {
@@ -29,5 +30,7 @@ int main()
         std::ranges::sample(in, std::back_inserter(out), n, gen);
         std::cout << "n = " << n;
         print(", out", out);
+        std::cout << "sorted = ";
+        print(", out", demo_work::do_work(out));
     }
 }
