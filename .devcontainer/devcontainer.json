@@ -1,0 +1,29 @@
+{
+    "name": "C++Dev",
+    "image": "my-gcc-test",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": "true",
+            "username": "vscode",
+            "userUid": "1000",
+            "userGid": "1000",
+            "upgradePackages": "true"
+        },
+        "ghcr.io/devcontainers/features/sshd": {},
+        "ghcr.io/devcontainers/features/git:1": {
+            "version": "latest",
+            "ppa": "false"
+        }
+    },
+    //"mounts" : [
+    //    "source=${env:HOME}/.wherevergitis,target=/home/vscode/.wherevergitis,type=bind,consistency=cached"
+    //],
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/vscode/demo-dev,type=bind",
+    "workspaceFolder": "/home/vscode/demo-dev",
+    "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "twxs.cmake",
+        "ms-vscode.cmake-tools"
+    ]
+}
