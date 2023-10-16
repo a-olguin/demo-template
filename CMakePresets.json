@@ -1,0 +1,56 @@
+{
+    "version": 3,
+    "configurePresets": [
+      {
+        "name": "app",
+        "description": "Configure the application",
+        "hidden": false,
+        "generator": "Unix Makefiles",
+        "binaryDir": "${sourceDir}/build/app",
+        "cacheVariables": {
+          "CMAKE_BUILD_TYPE": "Debug",
+          "PROD_BUILD": "ON",
+          "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}"
+        }
+      },
+      {
+        "name": "test",
+        "description": "Configure the tests",
+        "hidden": false,
+        "generator": "Unix Makefiles",
+        "binaryDir": "${sourceDir}/build/test",
+        "cacheVariables": {
+          "CMAKE_BUILD_TYPE": "Debug",
+          "PROD_BUILD": "OFF"
+        },
+        "environment": {
+            "PATH": "/opt/cpputest/include:$penv{PATH}"
+        }
+      }
+    ],
+    "buildPresets": [
+      {
+        "name": "app",
+        "description": "Build the application",
+        "configurePreset": "app"
+      },
+      {
+        "name": "test",
+        "description": "Build the tests",
+        "configurePreset": "test"
+      }
+    ],
+    "testPresets": [
+      {
+        "name": "test",
+        "description": "Run the unit tests",
+        "configurePreset": "test",
+        "output": {
+          "outputOnFailure": true
+        },
+        "execution": {
+          "jobs": 4
+        }
+      } 
+    ]
+}
