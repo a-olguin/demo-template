@@ -38,8 +38,8 @@ RUN cd /opt && \
     make && \
     make install
 
-# put gdb into the thing because apparently it wasnt there?^M
-RUN apt-get update && apt-get install -y gdb^M
+# put gdb into the thing because apparently it wasnt there?
+RUN apt-get update && apt-get install -y gdb
 
 # Move entry point script into container
 COPY ./entrypoint.sh /entrypoint.sh
