@@ -4,7 +4,7 @@
 #include <vector>
 
 namespace demo_work{
-    std::vector<int> do_work(std::vector<int>& input);
+    std::vector<int> do_work(const std::vector<int>& input);
 }
 
 #endif
