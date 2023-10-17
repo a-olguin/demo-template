@@ -35,7 +35,8 @@ RUN cd /opt && \
     git checkout v4.0 && \
     cd build && \
     cmake .. && \
-    make 
+    make && \
+    make install
 
 # Move entry point script into container
 COPY ./entrypoint.sh /entrypoint.sh
